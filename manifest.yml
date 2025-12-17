@@ -1,17 +1,12 @@
 modules:
   macro:
-    - key: checkbox-table-hello-world-macro
+    - key: checkbox-macro
+      title: Release Checkbox
       resource: main
-      render: native
-      resolver:
-        function: resolver
-      title: checkbox-table
+      uiKit2: true
   function:
-    - key: resolver
-      handler: index.handler
-resources:
-  - key: main
-    path: src/frontend/index.jsx
+    - key: main
+      handler: resolvers/index.handler
 app:
   runtime:
     name: nodejs22.x
@@ -22,3 +17,6 @@ permissions:
   scopes:
     - storage:app
     - read:confluence-user
+resources:
+  - key: main
+    path: src/frontend

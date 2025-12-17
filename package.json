@@ -12,6 +12,7 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "dependencies": {
+    "@forge/api": "^6.4.2",
     "@forge/bridge": "5.10.1",
     "@forge/react": "11.9.0",
     "@forge/resolver": "1.7.1",

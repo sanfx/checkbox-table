@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import ForgeReconciler, { Text } from '@forge/react';
-import { invoke } from '@forge/bridge';
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import { invoke } from "@forge/bridge";
 
 const App = () => {
-  const [data, setData] = useState(null);
+  const [content, setContent] = useState("");
 
   useEffect(() => {
-    invoke('getText', { example: 'my-invoke-variable' }).then(setData);
+    invoke("main").then((data) => setContent(data));
   }, []);
 
   return (
-    <>
-      <Text>Hello world!</Text>
-      <Text>{data ? data : 'Loading...'}</Text>
-    </>
+    <div>
+      <h2>Release Checkbox</h2>
+      <p>Content: {JSON.stringify(content)}</p>
+    </div>
   );
 };
 
-ForgeReconciler.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.render(<App />, document.getElementById("root"));
